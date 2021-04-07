@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+</head>
+<body>
+	<div class="container mt-5">
+	<div class="card">
+	<div class="card-header">Listes des patients</div>
+	<div class="card-body">
+	
+	
+		  <table class="table">
+			<tr>
+			<th>ID</th><th>Name</th><th>DateNaissance</th><th>Malade</th>
+			</tr>
+			<tr th:each="p:${patients}">
+				<td th:text="${p.id}"></td>
+				<td th:text="${p.name}"></td>
+				<td th:text="${p.dateNaissance}"></td>
+				<td th:text="${p.malade}"></td>
+			</tr>
+		</table>
+	</div>
+	</div>
+	</div>
+
+	
+
+</body>
+</html>
