@@ -26,13 +26,12 @@ public class SpringMvcApplication implements CommandLineRunner {
 		patientRepository.save(new Patient(null, "adil", new Date(), false));
 		patientRepository.save(new Patient(null, "youssef", new Date(), false));
 		patientRepository.save(new Patient(null, "ahmed", new Date(), false));
-		patientRepository.save(new Patient(null, "ali", new Date(), false));
-		patientRepository.save(new Patient(null, "adil", new Date(), false));
-		patientRepository.save(new Patient(null, "youssef", new Date(), false));
 		patientRepository.save(new Patient(null, "ahmed", new Date(), false));
 		patientRepository.save(new Patient(null, "ali", new Date(), false));
 		patientRepository.save(new Patient(null, "adil", new Date(), false));
 		patientRepository.save(new Patient(null, "youssef", new Date(), false));
+		patientRepository.save(new Patient(null, "ahmed", new Date(), false));
+	
 		
 		patientRepository.findAll().forEach(p->{
 			System.out.println(p.getName());

@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+		 xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		 layout:decorator="templates1.html"
+>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<title>Page patients</title>
 
-<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+
 </head>
 <body>
+	<div layout:fragment="pageContent">
 	<div class="container mt-5">
 	<div class="card">
 	<div class="card-header">Listes des patients</div>
 	<div class="card-body">
+	<form methode="get" th:action="@{patients}">
+	<div class="form-group">
+	<label>Name</label>
+	<input type="text" name="keyword" th:value="${keyword}">
+	<button class="btn btn-success">Chercher</button>
+	</div>
+	</form>
 	
 	
 		  <table class="table">
@@ -24,8 +33,18 @@
 				<td th:text="${p.name}"></td>
 				<td th:text="${p.dateNaissance}"></td>
 				<td th:text="${p.malade}"></td>
+				<td>
+				<a onclick="return confirm('Etes vous sure de vouloir supprimer?')" 
+				class="btn btn-danger" th:href="@{deletePatient(id=${p.id},keyword=${keywod},page=${currentPage},size=${size})}">Delete</a>
+				</td>
 			</tr>
 		</table>
+		
+		<ul class="nav nav-pills">
+		<li  th:each="page,status:${pages}">
+		<a th:class="${status.index==currentPage?'btn btn-primary':'btn'}" 
+			th:href="@{patients(page=${status.index},keyword=${keword},size=${size})}" th:text="${status.index}"></a>
+		</ul>
 	</div>
 	</div>
 	</div>
@@ -33,4 +52,5 @@
 	
 
 </body>
+	</div>
 </html>
