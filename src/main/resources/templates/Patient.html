@@ -33,9 +33,15 @@
 				<td th:text="${p.name}"></td>
 				<td th:text="${p.dateNaissance}"></td>
 				<td th:text="${p.malade}"></td>
-				<td>
+				<td th:text="${p.score}"></td>
+				<td sec:authorize="hasRole('ROLE_ADMIN')">
 				<a onclick="return confirm('Etes vous sure de vouloir supprimer?')" 
-				class="btn btn-danger" th:href="@{deletePatient(id=${p.id},keyword=${keywod},page=${currentPage},size=${size})}">Delete</a>
+				class="btn btn-danger" th:href="@{deletePatient(id=${p.id},keyword=${keywod},page=${currentPage},size=${size})}">
+				Delete</a>
+				</td>
+				
+				<td sec:authorize="hasRole('ROLE_ADMIN')">
+				<a class="btn btn-success" th:href=@{editPatient(id=${p.id})}>Edit</a>
 				</td>
 			</tr>
 		</table>
