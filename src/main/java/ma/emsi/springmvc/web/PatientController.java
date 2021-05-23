@@ -61,10 +61,14 @@ public class PatientController {
 	}
 @PostMapping(path="/savePatient")
 public String savePatient(Model model,@Valid Patient  patient ,BindingResult bindingResult) {
-	if(bindingResult.hasErrors()) return "formPatient";
-	patientRepository.save(patient);
+	if(bindingResult.hasErrors()) {
+		System.out.println("has errors");
+		return "formPatient";
+	}
 	model.addAttribute("patient",patient);
+	patientRepository.save(patient);
 	return "confirmation";
+	
 }
 @GetMapping(path = "/editPatient")
 public String editPatient(Model model,Long id) {

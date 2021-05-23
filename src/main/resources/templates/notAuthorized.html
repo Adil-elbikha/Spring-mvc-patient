@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" 
-		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+	layout:decorator="templates1">
 
-		 xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-		  layout:decorator="templates1"
-		  >
-		 
-<head>
+
 <head>
 <meta charset="utf-8">
 <title>Error</title>
 </head>
 <body>
-<div layout:fragment="pageContent">
-<div class="container">
-<h3 class="text-danger"> Vous n'étes pas authorisé</h3>
-</div>
-</div>
+	<div layout:fragment="pageContent">
+		<div class="container">
+			<h3 class="text-danger">Vous n'étes pas authorisé</h3>
+		</div>
+	</div>
 </body>
 </html>
